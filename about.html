@@ -321,12 +321,13 @@ body.leave{opacity:0;transition:opacity .28s ease}
 }
 /* ---- v8: photo band — mixed sizes, single or stacked, square corners ---- */
 .band{overflow:hidden;padding:clamp(56px,9vw,120px) 0;background:var(--paper);--bh:clamp(300px,50vw,600px)}
-.band-trk{display:flex;align-items:center;width:max-content;animation:bandmove 58s linear infinite}
+.band-trk{display:flex;align-items:center;width:max-content;animation:bandmove 26s linear infinite}
 
 .bcol{flex:none;display:flex;flex-direction:column;justify-content:center;gap:calc(var(--bh)*.06);margin-right:clamp(16px,2.4vw,36px)}
 .band figure{margin:0;height:calc(var(--bh)*var(--h));aspect-ratio:var(--ar);flex:none}
 .band .ph{width:100%;height:100%;border-radius:0}
-@keyframes bandmove{to{transform:translateX(-50%)}}
+@keyframes bandmove{to{transform:translateX(-25%)}}
+@media(max-width:700px){.band-trk{animation-duration:20s}}
 
 /* ---- v9: text fades in softly; lines break at phrases (PC and phone) ---- */
 .js .fd{opacity:0;transform:translateY(12px);transition:opacity 1.5s ease,transform 1.5s cubic-bezier(.2,.7,.2,1)}
@@ -348,12 +349,12 @@ body.leave{opacity:0;transition:opacity .28s ease}
 .abx-head{display:grid;gap:14px;text-align:center;margin-bottom:clamp(36px,6vw,72px)}
 .abx-head h1{font:900 clamp(26px,4.2vw,48px)/1.15 var(--logo);letter-spacing:.01em;color:#302B26}
 .abx-head p{font:700 clamp(19px,2.8vw,32px)/1.85 var(--serif);letter-spacing:.05em;color:#302B26}
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 @media(min-width:800px){.abx-head{grid-area:hd}}
 
 
 /* ---- v13: restrained display face for category titles inside the TOP page ---- */
-.tp h2{font-family:var(--disp);font-weight:400;font-synthesis:none;font-size:clamp(18px,2.6vw,26px);letter-spacing:.07em;color:#302B26}
+.tp h2{font-family:var(--disp);font-weight:900;font-synthesis:none;font-size:clamp(18px,2.6vw,26px);letter-spacing:.07em;color:#302B26}
 </style>
 </head>
 <body>
@@ -380,19 +381,15 @@ body.leave{opacity:0;transition:opacity .28s ease}
 <main>
   <div class="page-title"><h1>ABOUT</h1></div>
   <p class="abt-lead rv">日常の好きに、<br>小さな楽しみを。</p>
-  <div class="abt-intro"><p class="fd">暮らしの中で使うもの。<br>出かけるときに持っていくもの。<br>自分たちが使いたいと思えるものを、<br>ひとつずつつくっています。</p></div>
+  <div class="abt-intro"><p class="fd">暮らしの中で使うもの。<br>出かけるときに持っていくもの。<br><wbr>「いいな」<wbr>と思うものや、<br><wbr>「あったらいいな」<wbr>と思うものを、<br>ひとつずつカタチにしています。</p></div>
   <div class="abs-wrap">
     <div class="abs sl">
       <figure class="m rv"><div class="ph p1" data-file="about-1.jpg" style="--c1:#7a4b30;--c2:#3d2415"><img src="images/about-1.jpg" alt="" loading="lazy" onerror="this.remove()"></div></figure>
-      <div class="tx rv"><p class="sh fd">日常にも、<wbr>外の時間にも。</p><p class="fd">コーヒーを淹れる時間。<br>お気に入りの道具を使う時間。<br>キャンプで過ごす時間。<br>ふらっと出かける時間。<br>そんな時間のそばで使いたくなるものを。</p></div>
+      <div class="tx rv"><p class="sh fd">自分らしく、<wbr>好きなように。</p><p class="fd">日々の暮らしの中で。<br>何気なく手に取る時間。<br>お気に入りを持ち歩く時間。<br>自分の好きなものに触れる時間。<br>そんな日常に、<wbr>自然と馴染むものを。</p></div>
     </div>
     <div class="abs sr">
-      <figure class="m rv"><div class="ph p2" data-file="about-2.jpg" style="--c1:#4d5a4a;--c2:#1f261e"><img src="images/about-2.jpg" alt="" loading="lazy" onerror="this.remove()"></div></figure>
-      <div class="tx rv"><p class="sh fd">ユーザー目線のモノづくりを</p><p class="fd"><wbr>「こんなものがあったらいいな」<wbr>から始まり、<br>実際の使用感を考えて、<wbr>シンプルなデザインを追求しています。<br>ひとつひとつ、<wbr>丁寧に手作業で製作しています。</p></div>
-    </div>
-    <div class="abs sl">
       <figure class="m rv"><div class="ph p2" data-file="about-5.jpg" style="--c1:#6a4028;--c2:#2b190e"><img src="images/about-5.jpg" alt="" loading="lazy" onerror="this.remove()"></div></figure>
-      <div class="tx rv"><p class="sh fd">使うことまで、<wbr>楽しめるものを。</p><p class="fd">使うたびに少し気分が上がる。<br>使い続けるうちに、<wbr>いつの間にか好きになっている。<br>そんなものを、<wbr>日々の中へ。</p></div>
+      <div class="tx rv"><p class="sh fd">好きなものを、<wbr>いつも。</p><p class="fd">使うほどに手に馴染む。<br>少しずつ、<wbr>自分だけの表情になっていく。<br>気づけば、<wbr>いつもそばにある。<br>そんなものを、<wbr>自分らしい日々の中へ。</p></div>
     </div>
   </div>
   <div class="wrap"><div class="tx en rv" style="max-width:560px;margin:clamp(72px,11vw,140px) auto 0;text-align:center;display:grid;gap:10px">
@@ -404,6 +401,7 @@ body.leave{opacity:0;transition:opacity .28s ease}
 
 <footer><a class="igicon" data-ig href="https://www.instagram.com/lid___works/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".9" fill="currentColor" stroke="none"/></svg></a><small>&copy; <span id="y">2026</span> LID</small></footer>
 <script>
+
 
 
 
@@ -577,7 +575,7 @@ if (cform) {
 /* photo band: duplicate once so the loop is seamless */
 (function(){
   const t = document.getElementById("btrk"); if (!t) return;
-  [...t.children].forEach(c => { const k = c.cloneNode(true); k.setAttribute("aria-hidden", "true"); t.appendChild(k); });
+  const base = [...t.children]; for (let i = 0; i < 3; i++) base.forEach(c => { const k = c.cloneNode(true); k.setAttribute("aria-hidden", "true"); t.appendChild(k); });
 })();
 
 </script>
