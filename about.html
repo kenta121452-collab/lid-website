@@ -355,6 +355,14 @@ body.leave{opacity:0;transition:opacity .28s ease}
 
 /* ---- v13: restrained display face for category titles inside the TOP page ---- */
 .tp h2{font-family:var(--disp);font-weight:900;font-synthesis:none;font-size:clamp(18px,2.6vw,26px);letter-spacing:.07em;color:#302B26}
+
+/* ---- v14: dynamic photo band (diagonal pairs, gently shifted columns) + product note ---- */
+.bcol{transform:translateY(calc(var(--bh)*var(--dy,0)))}
+.bcol.dg{display:grid;grid-template-columns:auto auto;align-content:center;column-gap:calc(var(--bh)*.04);row-gap:calc(var(--bh)*.06)}
+.bcol.dg figure{justify-self:start}
+.bcol.dg figure:nth-child(1){grid-column:1;grid-row:1}
+.bcol.dg figure:nth-child(2){grid-column:2;grid-row:2}
+.pj .note-s{font-size:11px;line-height:1.8;color:var(--mute);margin-top:4px;font-weight:600}
 </style>
 </head>
 <body>

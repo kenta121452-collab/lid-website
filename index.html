@@ -359,6 +359,14 @@ body.leave{opacity:0;transition:opacity .28s ease}
 
 /* ---- v13: restrained display face for category titles inside the TOP page ---- */
 .tp h2{font-family:var(--disp);font-weight:900;font-synthesis:none;font-size:clamp(18px,2.6vw,26px);letter-spacing:.07em;color:#302B26}
+
+/* ---- v14: dynamic photo band (diagonal pairs, gently shifted columns) + product note ---- */
+.bcol{transform:translateY(calc(var(--bh)*var(--dy,0)))}
+.bcol.dg{display:grid;grid-template-columns:auto auto;align-content:center;column-gap:calc(var(--bh)*.04);row-gap:calc(var(--bh)*.06)}
+.bcol.dg figure{justify-self:start}
+.bcol.dg figure:nth-child(1){grid-column:1;grid-row:1}
+.bcol.dg figure:nth-child(2){grid-column:2;grid-row:2}
+.pj .note-s{font-size:11px;line-height:1.8;color:var(--mute);margin-top:4px;font-weight:600}
 </style>
 </head>
 <body>
@@ -439,18 +447,18 @@ body.leave{opacity:0;transition:opacity .28s ease}
       <div class="plist">
         <article class="pj rv">
           <div class="ph box" data-file="work-01.jpg" style="--c1:#7a4b30;--c2:#3d2415"><img src="images/work-01.jpg" alt="モーテルキーホルダー" loading="lazy" onerror="this.remove()"></div>
-          <div class="no"><span>01</span><span>PROTOTYPE</span></div>
+          <div class="no"><span>01</span></div>
           <h3>Motel Key Holder</h3><p>出かけるときの気分を楽しむ、モーテルキーのようなキーホルダー。</p>
         </article>
         <article class="pj rv">
           <div class="ph box" data-file="work-02.jpg" style="--c1:#5b3a26;--c2:#24140c"><img src="images/work-02.jpg" alt="キーケース" loading="lazy" onerror="this.remove()"><span class="b"><img src="images/work-02-b.jpg" alt="" loading="lazy" onerror="this.remove()"></span></div>
-          <div class="no"><span>02</span><span>PROTOTYPE</span></div>
+          <div class="no"><span>02</span></div>
           <h3>Key Case</h3><p>モーテルのキーを思わせる、シンプルな形。鍵をそっと包んで、出かける気分を楽しむ。</p>
         </article>
         <article class="pj rv">
           <div class="ph box" data-file="work-03.jpg" style="--c1:#6a4028;--c2:#2b190e"><img src="images/work-03.jpg" alt="コースター" loading="lazy" onerror="this.remove()"><span class="b"><img src="images/work-03-b.jpg" alt="" loading="lazy" onerror="this.remove()"></span></div>
-          <div class="no"><span>03</span><span>PROTOTYPE</span></div>
-          <h3>Coaster</h3><p>コーヒーの時間を楽しむ、革のコースター。</p>
+          <div class="no"><span>03</span></div>
+          <h3>Coaster</h3><p>余暇をともに楽しむ、レザーコースター。</p>
         </article>
       </div>
       <a class="more" href="product.html">MORE</a>
@@ -459,12 +467,11 @@ body.leave{opacity:0;transition:opacity .28s ease}
 
   <section class="band" aria-label="LIDの写真">
     <div class="band-trk" id="btrk">
-      <div class="bcol"><figure style="--h:.78;--ar:3/2"><div class="ph" data-file="slide-1.jpg" style="--c1:#7ab0dc;--c2:#2c6a99"><img src="images/slide-1.jpg" alt="" loading="lazy" onerror="this.remove()"></div></figure></div>
-      <div class="bcol"><figure style="--h:.46;--ar:1/1"><div class="ph" data-file="slide-4.jpg" style="--c1:#8a5636;--c2:#3d2415"><img src="images/slide-4.jpg" alt="" loading="lazy" onerror="this.remove()"></div></figure><figure style="--h:.46;--ar:3/2"><div class="ph" data-file="slide-8.jpg" style="--c1:#6b8a78;--c2:#2c3f35"><img src="images/slide-8.jpg" alt="" loading="lazy" onerror="this.remove()"></div></figure></div>
-      <div class="bcol"><figure style="--h:.95;--ar:4/5"><div class="ph" data-file="slide-2.jpg" style="--c1:#2b190e;--c2:#000"><img src="images/slide-2.jpg" alt="" loading="lazy" onerror="this.remove()"></div></figure></div>
-      <div class="bcol"><figure style="--h:.55;--ar:16/9"><div class="ph" data-file="slide-6.jpg" style="--c1:#8b6fa0;--c2:#f0a070"><img src="images/slide-6.jpg" alt="" loading="lazy" onerror="this.remove()"></div></figure></div>
-      <div class="bcol"><figure style="--h:.6;--ar:16/9"><div class="ph" data-file="slide-3.jpg" style="--c1:#2b190e;--c2:#000"><img src="images/slide-3.jpg" alt="" loading="lazy" onerror="this.remove()"></div></figure></div>
-      <div class="bcol"><figure style="--h:.6;--ar:1/1"><div class="ph" data-file="slide-5.jpg" style="--c1:#9fb4b0;--c2:#4d5a58"><img src="images/slide-5.jpg" alt="" loading="lazy" onerror="this.remove()"></div></figure></div>
+      <div class="bcol" style="--dy:.06"><figure style="--h:.78;--ar:3/2"><div class="ph" data-file="slide-1.jpg" style="--c1:#7ab0dc;--c2:#2c6a99"><img src="images/slide-1.jpg" alt="" loading="lazy" onerror="this.remove()"></div></figure></div>
+      <div class="bcol dg" style="--dy:0"><figure style="--h:.46;--ar:1/1"><div class="ph" data-file="slide-4.jpg" style="--c1:#8a5636;--c2:#3d2415"><img src="images/slide-4.jpg" alt="" loading="lazy" onerror="this.remove()"></div></figure><figure style="--h:.46;--ar:3/2"><div class="ph" data-file="slide-8.jpg" style="--c1:#6b8a78;--c2:#2c3f35"><img src="images/slide-8.jpg" alt="" loading="lazy" onerror="this.remove()"></div></figure></div>
+      <div class="bcol" style="--dy:-.05"><figure style="--h:.95;--ar:4/5"><div class="ph" data-file="slide-2.jpg" style="--c1:#2b190e;--c2:#000"><img src="images/slide-2.jpg" alt="" loading="lazy" onerror="this.remove()"></div></figure></div>
+      <div class="bcol" style="--dy:.08"><figure style="--h:.55;--ar:16/9"><div class="ph" data-file="slide-6.jpg" style="--c1:#8b6fa0;--c2:#f0a070"><img src="images/slide-6.jpg" alt="" loading="lazy" onerror="this.remove()"></div></figure></div>
+      <div class="bcol dg" style="--dy:-.02"><figure style="--h:.42;--ar:16/9"><div class="ph" data-file="slide-3.jpg" style="--c1:#2b190e;--c2:#000"><img src="images/slide-3.jpg" alt="" loading="lazy" onerror="this.remove()"></div></figure><figure style="--h:.42;--ar:1/1"><div class="ph" data-file="slide-5.jpg" style="--c1:#9fb4b0;--c2:#4d5a58"><img src="images/slide-5.jpg" alt="" loading="lazy" onerror="this.remove()"></div></figure></div>
     </div>
   </section>
 
