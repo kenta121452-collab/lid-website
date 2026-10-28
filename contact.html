@@ -166,7 +166,7 @@ html.intro-soft .hero{animation:heroResolve 1.5s ease both}
 @keyframes introOut{0%,25%{opacity:1}100%{opacity:0}}
 @keyframes bloom{0%{opacity:0;transform:scale(.4)}35%{opacity:1;transform:scale(1.1)}100%{opacity:0;transform:scale(2.2)}}
 .intro-on:not(.intro-done) body{overflow:hidden}
-.intro svg{width:clamp(72px,16vw,108px);height:auto;overflow:hidden}
+.intro svg{width:clamp(58px,12.8vw,86px);height:auto;overflow:hidden}
 .intro .st{stroke:var(--sun);fill:none;animation:tint .4s 3.05s forwards}
 .intro .d{stroke-dasharray:1;stroke-dashoffset:1;animation:draw var(--t) var(--d) cubic-bezier(.45,0,.35,1) forwards}
 @keyframes draw{to{stroke-dashoffset:0}}
@@ -435,7 +435,7 @@ body.leave{opacity:0;transition:opacity .28s ease}
 .cf{opacity:0;word-break:keep-all;overflow-wrap:anywhere;line-break:strict}
 .cf.ready{opacity:1}
 .cf .c{opacity:0}
-.cf.in .c{animation:chIn .9s ease both;animation-delay:var(--d)}
+.in>.cf .c{animation:chIn .9s ease both;animation-delay:var(--d)}
 @keyframes chIn{from{opacity:0}to{opacity:1}}
 @media(prefers-reduced-motion:reduce){.cf .c{opacity:1;animation:none!important}}
 
@@ -488,6 +488,7 @@ body.leave{opacity:0;transition:opacity .28s ease}
 
 <footer><a class="igicon" data-ig href="https://www.instagram.com/lid___works/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".9" fill="currentColor" stroke="none"/></svg></a><small>&copy; <span id="y">2026</span> LID</small></footer>
 <script>
+
 
 
 
@@ -681,16 +682,18 @@ if (cform) {
 
 
 
-/* TOP About: characters appear one after another (opacity only; layout never moves) */
+/* TOP About: characters appear in one continuous sequence, top to bottom (opacity only; layout never moves) */
 (function(){
+  const counters = new Map();
   document.querySelectorAll(".cf").forEach(el => {
     el.setAttribute("aria-label", el.textContent.replace(/\s+/g, ""));
-    let n = 0;
+    let n = counters.get(el.parentElement) || 0;
     el.innerHTML = el.innerHTML.split(/(<[^>]+>)/).map(seg => seg.charAt(0) === "<" ? seg : [...seg].map(ch => {
       if (!ch.trim()) return ch;
-      const d = Math.min(n * 24, 2200); n++;
+      const d = Math.min(n * 22, 3400); n++;
       return '<span class="c" aria-hidden="true" style="--d:' + d + 'ms">' + ch + '</span>';
     }).join("")).join("");
+    counters.set(el.parentElement, n);
     el.classList.add("ready");
   });
 })();
